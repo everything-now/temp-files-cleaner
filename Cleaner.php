@@ -2,10 +2,40 @@
 
 class Cleaner
 {
+
+    /**
+     * Number of deleted files
+     *
+     * @var integer
+     */
     public $countDeletedFiles = 0;
+
+    /**
+     * Number of deleted directories
+     *
+     * @var integer
+     */
     public $countDeletedDirectories = 0;
+    
+    /**
+     * Number of operations with errors
+     *
+     * @var integer
+     */
     public $countErrors = 0;
+    
+    /**
+     * Delete directory argument
+     *
+     * @var boolean
+     */
     private $delDirectory;
+    
+    /**
+     * File extention argument
+     *
+     * @var string
+     */
     private $extension;
 
     /**
