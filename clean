@@ -1,0 +1,25 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Temporary Files Cleaner
+|--------------------------------------------------------------------------
+|
+| PHP-CLI Cleaner is a simple command that helps 
+| with deleting temprary .bak files or anything else.
+|
+*/
+
+require_once __DIR__ . '/CommandExecutor.php';
+require_once __DIR__ . '/Cleaner.php';
+
+
+if(PHP_SAPI != 'cli'){
+    exit('Attempt to execute a console command');
+}
+
+$executor = new CommandExecutor;
+
+$cleaner = new Cleaner($executor->args);
+
+$executor->outputResult($cleaner);
