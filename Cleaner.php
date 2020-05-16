@@ -53,7 +53,10 @@ class Cleaner
         $files = glob($path . '/*' . $ext);
 
         foreach($files as $file){
-            $this->deleteFile($file);
+            
+            if($ext != '.bak' || $this->canDeleteDotBakFile($file)){
+                $this->deleteFile($file);
+            }
         }
 
         if($this->delDirectory && empty(glob($path . '/*'))){
@@ -95,6 +98,19 @@ class Cleaner
         $this->countErrors++;
 
         return false;
+    }
+
+    /**
+     * Check if exists other files with the same filename
+     *
+     * @param string $file
+     * @return boolean
+     */
+    private function canDeleteDotBakFile(string $file)
+    {
+        $sameNameFiles = glob(str_replace('.bak', '', $file) . '.*[!bak]');
+                
+        return empty($sameNameFiles);
     }
 
 }
