@@ -18,7 +18,7 @@ Run command from the terminal:
 
 *   `-p`        Directory path
 *   `-d`        Delete the directory if it is empty
-*   ` -h`       Display this text and exit immediately
+*   ` -h`       Display help text and exit immediately
 *   `--ext`     Set extension (default .bak)
 
 ## Example
